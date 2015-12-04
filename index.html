@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="css/styles.css">
-  <!-- Source https://code.angularjs.org/1.5.0-beta.2/ -->
-  <script src="js/language/angular-route.js"></script>
-  <script src="js/language/angular.js"></script>
-  <script src="js/routes.js"></script>
-  <link rel="stylesheet" href="css/styles.css">
+    <title>Home Page</title>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/routes.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body ng-app="myApp">
+    <h1>Home Page</h1>
+    <p>Navigation | <a href="#filmsearch">Film Search</a> | <a href="#mapsearch">Map Search</a></p>
+    <p class="search">
+        <img src="https://www.palantir.com/wp-assets/wp-content/static/techblog/2009/08/200px-magnifying_glass_icon.png" width="125"/>
+    </p>
+    <br>
+    <hr>
+    <div ng-view>
+        
+    </div>
 </body>
-</html>   
+</html>

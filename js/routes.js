@@ -2,6 +2,7 @@ var myApp = angular.module('myApp', ['ngRoute'])
 
 myApp.config( ['$routeProvider', function($routeProvider){
     $routeProvider
+
         .when('/filmsearch', {
             templateUrl: 'templates/film_search.html',
             controller: 'filmsearchController'
@@ -34,14 +35,18 @@ myApp.config( ['$routeProvider', function($routeProvider){
 }])
 //$http meaning, it sends a http request to my api, to get the third-party data
 myApp.controller('filmsearchController', function($scope, $http){
-    
+
+    $scope.greeting = 'Welcome to the film search!'
+    $scope.filmSearch = function($event) {
+        //Add keydown event here
+    }
     var searchFilm = $scope.searchTerm
     var url = 'https://project1-will12976-2.c9users.io/films?title='+searchFilm
     
 })
 
 myApp.controller('mapsearchController', function($scope, $http){
-    
+    $scope.greeting = 'Welcome to the map search!'
     var searchMap = $scope.searchMap
     var url = 'https://project1-will12976-2.c9users.io/maps?address='+searchMap
 })
