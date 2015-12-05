@@ -38,17 +38,43 @@ myApp.controller('filmsearchController', function($scope, $http){
 
     $scope.greeting = 'Welcome to the film search!'
     $scope.filmSearch = function($event) {
-        //Add keydown event here
-    }
-    var searchFilm = $scope.searchTerm
-    var url = 'https://project1-will12976-2.c9users.io/films?title='+searchFilm
+        if ($event.which == 13) {
+            var filmsearch = $scope.filmTerm
+            var url = 'https://project1-will12976-2.c9users.io/films?title='+filmsearch
+            $http.get(url).success(function(response){
+                $scope.films = response.data
+                $scope.filmTerm = ''
+            })
+
+            
+        }
+        $scope.searched = 'You have searched for '
+        $scope.sfilm = filmsearch
     
+    }
+
 })
 
 myApp.controller('mapsearchController', function($scope, $http){
     $scope.greeting = 'Welcome to the map search!'
-    var searchMap = $scope.searchMap
-    var url = 'https://project1-will12976-2.c9users.io/maps?address='+searchMap
+    $scope.mapSearch = function($event) {
+        if($event.which == 13) {
+            var mapsearch = $scope.mapTerm
+            var url = 'https://project1-will12976-2.c9users.io/maps?address='+mapsearch
+            $http.get(url).success(function(response){
+                $scope.maps = response.data
+                $scope.mapTerm = ''
+            })
+        }
+        $scope.searched = 'You have searched for '
+        $scope.smap = mapsearch
+    }
+    $scope.addToFavourites = function(id) {
+        var idOld = id
+        var convert = JSON.stringify(id)
+        console.log('adding: '+id+' to favourites.')
+        localStorage.setItem(convert, idOld)
+    }
 })
 
 myApp.controller('detailController', function($scope, $routeParams) {
@@ -58,8 +84,15 @@ myApp.controller('detailController', function($scope, $routeParams) {
 })
 
 myApp.controller('favouritesController', function($scope){
-    
-    
+
+    var init = function() {
+        var items = Array()
+        for (var a in localStorage) {
+            items.push(localStorage[a])
+        }
+        $scope.films = items
+    }
+    init()
     
 })
 

@@ -1,3 +1,13 @@
 <h2>Map Search</h2>
 <p> {{ greeting }}</p>
-<p><input type="text ng-model="mapTerm" ng-keydown="filmsearch($event)" autofocus></p>
+<p><input type="text" ng-model="mapTerm" ng-keydown="mapSearch($event)" autofocus></p>
+
+
+<table style="width:100%">
+    <tr ng-repeat="map in maps">
+        <p> {{ searched }} <b> {{ smap }}</b></p>
+        <!-- This doesn't work... :S -->
+        <td>{{map.Address}}</td> 
+        
+    </tr>
+</table>

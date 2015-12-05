@@ -1,4 +1,19 @@
 <h2>Film Search</h2>
 <p>{{ greeting }}</p>
 
-<p><input type="text" ng-model="filmTerm" ng-keydown="filmsearch($event)" autofocus></p>
+<p><input type="text" ng-model="filmTerm" ng-keydown="filmSearch($event)" autofocus></p>
+
+<table style="width:100%">
+    <tr>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Description</th>
+        <th>Thumbnail</th>
+        <th>More Info</th>
+    </tr>
+    <tr ng-repeat="film in films">
+        <p>{{ searched }}<b>{{ sfilm }}</b></p>
+        </td><td>{{film.title}} ({{film.year}})</td><td>{{film.genre}}</td><td> {{film.description}}</td><td><img ng-src="{{film.poster}}"/></td><td><a href="#details">View</a></td>
+    </tr>
+</table>
+

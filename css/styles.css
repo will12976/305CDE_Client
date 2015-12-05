@@ -21,3 +21,14 @@ p.search {
     top: 0px;
     right: 0px;
 }
+
+table, th, td {
+    border: 1px solid black;
+}
+
+td {
+    text-align:center;
+}
+b {
+    text-align:center;
+}
