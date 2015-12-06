@@ -11,7 +11,7 @@ myApp.config( ['$routeProvider', function($routeProvider){
             templateUrl: 'templates/map_search.html',
             controller: 'mapsearchController'
         })
-        .when('/details', {
+        .when('/details/:title/:plot/:link/:time/:rating/:id', {
             templateUrl: 'templates/details.html',
             controller: 'detailController'
         })
@@ -50,9 +50,8 @@ myApp.controller('filmsearchController', function($scope, $http){
         }
         $scope.searched = 'You have searched for '
         $scope.sfilm = filmsearch
-    
+        localStorage.clear()
     }
-
 })
 
 myApp.controller('mapsearchController', function($scope, $http){
@@ -69,17 +68,22 @@ myApp.controller('mapsearchController', function($scope, $http){
         $scope.searched = 'You have searched for '
         $scope.smap = mapsearch
     }
-    $scope.addToFavourites = function(id) {
-        var idOld = id
-        var convert = JSON.stringify(id)
-        console.log('adding: '+id+' to favourites.')
-        localStorage.setItem(convert, idOld)
-    }
+
 })
 
 myApp.controller('detailController', function($scope, $routeParams) {
     
-    
+    $scope.title = $routeParams.title
+    $scope.plot = $routeParams.plot
+    $scope.link = $routeParams.link
+    $scope.time = $routeParams.time
+    $scope.rating = $routeParams.rating
+    $scope.id = $routeParams.id
+    $scope.addToFavourites = function(title) {
+        localStorage.setItem(title, title)
+        $scope.message = 'This has been added to your favourites'
+    }
+
     
 })
 
@@ -93,6 +97,10 @@ myApp.controller('favouritesController', function($scope){
         $scope.films = items
     }
     init()
+    $scope.clearList = function(){
+        localStorage.clear()
+        window.location.reload();
+    }
     
 })
 

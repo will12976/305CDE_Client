@@ -1,10 +1,14 @@
 <h2>Favourites</h2>
+<p>Here, you can view your favourite films here!</p>
 <table style="width:50%">
     <tr>
         <th>Details</th>
-        <th>Remove</th>
+        <th>Action:</th>
     </tr>
     <tr ng-repeat="film in films">
         <td>{{film}}</td>
     </tr>
+    
 </table>
+<br>
+<button ng-click="clearList()">Clear Favourites</button>

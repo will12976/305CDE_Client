@@ -13,7 +13,7 @@
     </tr>
     <tr ng-repeat="film in films">
         <p>{{ searched }}<b>{{ sfilm }}</b></p>
-        </td><td>{{film.title}} ({{film.year}})</td><td>{{film.genre}}</td><td> {{film.description}}</td><td><img ng-src="{{film.poster}}"/></td><td><a href="#details">View</a></td>
+        <td>{{film.title}} ({{film.year}})</td><td>{{film.genre}}</td><td> {{film.description}}</td><td><img ng-src="{{film.poster}}"/></td><td><a href="#details/{{film.title}}/{{film.plot}}/{{film.rated}}/{{film.time}}/{{film.rating}}/{{film.id}}">View</a></td>
     </tr>
 </table>
 
