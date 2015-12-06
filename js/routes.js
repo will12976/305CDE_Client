@@ -31,14 +31,14 @@ myApp.config( ['$routeProvider', function($routeProvider){
             templateUrl: 'templates/home.html',
             controller: 'homeController'
         })
-        
         .otherwise({
             redirectTo: 'home'
         })
+
     
 }])
 //$http meaning, it sends a http request to my api, to get the third-party data
-myApp.controller('filmsearchController', function($scope, $http){
+myApp.controller('filmsearchController', function($scope, $http, $window){
 
     $scope.greeting = 'Welcome to the film search!'
     $scope.filmSearch = function($event) {
@@ -49,11 +49,11 @@ myApp.controller('filmsearchController', function($scope, $http){
                 $scope.films = response.data
                 $scope.filmTerm = ''
             })
-
             
         }
         $scope.searched = 'You have searched for '
         $scope.sfilm = filmsearch
+        
     }
 })
 
@@ -70,6 +70,9 @@ myApp.controller('mapsearchController', function($scope, $http){
         }
         $scope.searched = 'You have searched for '
         $scope.smap = mapsearch
+    }
+    $scope.addToFavourites = function(add) {
+        localStorage.setItem(add, add)
     }
 
 })
@@ -90,7 +93,6 @@ myApp.controller('detailController', function($scope, $routeParams) {
 })
 
 myApp.controller('favouritesController', function($scope){
-
     var init = function() {
         var items = Array()
         for (var a in localStorage) {
@@ -99,6 +101,10 @@ myApp.controller('favouritesController', function($scope){
         $scope.films = items
     }
     init()
+    $scope.delete = function(film) {
+        localStorage.removeItem(film)
+        window.location.reload();
+    }
     $scope.clearList = function(){
         localStorage.clear()
         window.location.reload();
