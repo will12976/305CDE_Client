@@ -11,7 +11,7 @@ myApp.config( ['$routeProvider', function($routeProvider){
             templateUrl: 'templates/map_search.html',
             controller: 'mapsearchController'
         })
-        .when('/details/:title/:plot/:link/:time/:rating/:id', {
+        .when('/details/:title/:plot/:link/:time/:id', {
             templateUrl: 'templates/details.html',
             controller: 'detailController'
         })
@@ -30,6 +30,10 @@ myApp.config( ['$routeProvider', function($routeProvider){
         .when('/home', {
             templateUrl: 'templates/home.html',
             controller: 'homeController'
+        })
+        
+        .otherwise({
+            redirectTo: 'home'
         })
     
 }])
@@ -50,7 +54,6 @@ myApp.controller('filmsearchController', function($scope, $http){
         }
         $scope.searched = 'You have searched for '
         $scope.sfilm = filmsearch
-        localStorage.clear()
     }
 })
 
@@ -77,7 +80,6 @@ myApp.controller('detailController', function($scope, $routeParams) {
     $scope.plot = $routeParams.plot
     $scope.link = $routeParams.link
     $scope.time = $routeParams.time
-    $scope.rating = $routeParams.rating
     $scope.id = $routeParams.id
     $scope.addToFavourites = function(title) {
         localStorage.setItem(title, title)
@@ -112,6 +114,6 @@ myApp.controller('recentController', function($scope){
 
 myApp.controller('homeController', function($scope){
     
-    
+    $scope.message = 'Welcome to my AngularJS Client!'
     
 })

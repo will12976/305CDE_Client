@@ -8,12 +8,15 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body ng-app="myApp">
-    <h1>305CDE Client</h1>
-    <p>Navigation | <a href="#filmsearch">Film Search</a> | <a href="#mapsearch">Map Search</a> | <a href="#favourites">Favourites</a></p>
+    <h1 class="homeHeader">305CDE Client</h1>
+    <div id="image">
+        <a href="#home"><img src="http://cdn.flaticon.com/png/256/61972.png" class="ribbon"/></a>
+    </div>
     <p class="search">
         <img src="https://www.palantir.com/wp-assets/wp-content/static/techblog/2009/08/200px-magnifying_glass_icon.png" width="125"/>
     </p>
     <br>
+    <p>Navigation | <a href="#filmsearch">Film Search</a> | <a href="#mapsearch">Map Search</a> | <a href="#favourites">Favourites</a></p>
     <hr>
     <div ng-view>
         

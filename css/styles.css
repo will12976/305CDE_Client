@@ -20,6 +20,7 @@ p.search {
     position: absolute;
     top: 0px;
     right: 0px;
+    margin-right: 5px;
 }
 
 table, th, td {
@@ -31,4 +32,21 @@ td {
 }
 b {
     text-align:center;
+}
+h1.homeHeader{
+    text-align: center;
+}
+
+#content {
+    position: relative;
+}
+
+.ribbon {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 75px;
+    width: 75px;
+    margin-left:15px;
+    margin-top:15px;
 }
