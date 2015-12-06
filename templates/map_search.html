@@ -14,7 +14,7 @@
     <tr ng-repeat="map in maps">
         <p> {{ searched }} <b> {{ smap }}</b></p>
         <!-- This doesn't work... :S -->
-        <td>{{map.Place_ID}}</td><td>{{map.Address}}</td><td>{{map.Location_Type}}</td><td>{{map.Lat}}</td><td>{{map.Lng}}</td><td><button ng-click="addToFavourites({{map.Address}})">Add to Favourites</button></td>
+        <td>{{map.Place_ID}}</td><td>{{map.Address}}</td><td>{{map.Location_Type}}</td><td>{{map.Lat}}</td><td>{{map.Lng}}</td><td><a href="#detailsMap/{{map.Place_ID}}/{{map.Address}}/{{map.Location_Type}}/{{map.Lat}}/{{map.Lng}}">More Actions >>></a></td>
         
     </tr>
 </table>

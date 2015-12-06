@@ -15,6 +15,10 @@ myApp.config( ['$routeProvider', function($routeProvider){
             templateUrl: 'templates/details.html',
             controller: 'detailController'
         })
+        .when('/detailsMap/:id/:add/:loc/:lat/:lng', {
+            templateUrl: 'templates/detailsMap.html',
+            controller: 'detailsMapController'
+        })
         .when('/favourites', {
             templateUrl: 'templates/favourites.html',
             controller: 'favouritesController'
@@ -71,8 +75,8 @@ myApp.controller('mapsearchController', function($scope, $http){
         $scope.searched = 'You have searched for '
         $scope.smap = mapsearch
     }
-    $scope.addToFavourites = function(add) {
-        localStorage.setItem(add, add)
+    $scope.addToFavourites = function(id) {
+        localStorage.setItem(id, id)
     }
 
 })
@@ -88,8 +92,19 @@ myApp.controller('detailController', function($scope, $routeParams) {
         localStorage.setItem(title, title)
         $scope.message = 'This has been added to your favourites'
     }
+})
 
+myApp.controller('detailsMapController', function($scope, $routeParams){
     
+    $scope.id = $routeParams.id
+    $scope.address = $routeParams.add
+    $scope.loc = $routeParams.loc
+    $scope.lat = $routeParams.lat
+    $scope.lng = $routeParams.lng
+    $scope.addToFavourites = function(place) {
+        localStorage.setItem(place, place)
+        $scope.message = 'This has been added to your favourites'
+    }
 })
 
 myApp.controller('favouritesController', function($scope){
@@ -109,12 +124,6 @@ myApp.controller('favouritesController', function($scope){
         localStorage.clear()
         window.location.reload();
     }
-    
-})
-
-myApp.controller('recentController', function($scope){
-    
-    
     
 })
 

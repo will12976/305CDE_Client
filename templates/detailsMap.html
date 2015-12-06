@@ -1,22 +1,16 @@
-<style>
-    #map {
-        width: 500px;
-        height: 400px;
-      }
-</style>
-<script src="https://maps.googleapis.com/maps/api/js"></script>
-<script>
-    function initialize() {
-        var mapCanvas = document.getElementById('map');
-        var mapOptions = {
-          center: new google.maps.LatLng(44.5403, -78.5463),
-          zoom: 8,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var map = new google.maps.Map(mapCanvas, mapOptions)
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-</script>
-<body>
-    <div id="map"></div>
-</body>
+<h2>More Details</h2>
+<p>Here you can overview your selection, and store your search in your favourites</p>
+<br>
+<table style="width:75%">
+    
+    <td><p><b>Place ID: </b> {{id}} </p>
+    <p><b>Address: </b> {{address}} </p>
+    <p><b>Location: </b> {{loc}} </p>
+    <p><b>Latitude: </b> {{lat}} </p>
+    <p><b>Longtitude</b> {{lng}} </p>
+    
+    </td>
+    <td class="start"><p><button ng-click="addToFavourites(address)">Add to Favourites</button></p></td>
+    
+</table>
+<p>{{message}}</p>
